@@ -1,5 +1,15 @@
 
-<a routerLink="/test/remote">Dashboard</a>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Shell App</span>
+    <span class="menu-spacer"></span>
+    <div>
+      <a mat-button [routerLink]="'/admin/dashboard'"> Dashboard </a>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>
 
-
-<router-outlet></router-outlet>
+<main>
+  <h1>Module Federation 🚀 / Twitter <a href="https://twitter.com/malvarezcr" target="_blank">@malvarezcr</a></h1>
+  <router-outlet></router-outlet>
+</main>

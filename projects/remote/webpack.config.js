@@ -15,7 +15,7 @@ module.exports = {
         name: "admin",
         filename: "remoteEntry.js",
         exposes: {
-          './Dashboard': './projects/remote/src/app/remote-home/remote-home.module.ts',
+          './Dashboard': './projects/remote/src/app/dashboard/dashboard.module.ts',
         },
 
         shared: {
