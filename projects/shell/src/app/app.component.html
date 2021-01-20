@@ -2,16 +2,35 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
     <span>Shell App</span>
-    <span class="menu-spacer"></span>
     <div>
       <a mat-button [routerLink]="'/'"> Home </a>
       <a mat-button [routerLink]="'/dashboard'"> Dashboard </a>
+    </div>
+    <span class="menu-spacer"></span>
+    <div>
+      <button mat-button  (click)="click()">
+        <ng-container *ngIf="session?.isActive; else logIn">
+          <mat-icon>exit_to_app</mat-icon>
+        </ng-container>
+
+        <ng-template #logIn>
+          Log In
+        </ng-template>
+      </button>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
 
 <main>
-  <h1>Module Federation 🚀 / Twitter <a href="https://twitter.com/malvarezcr" target="_blank">@malvarezcr</a></h1>
-  <button (click)="click()">state</button>
+  <h1>Module Federation 🚀 /
+    <ng-container *ngIf="session?.isActive; else loggedOut">
+      Twitter <a href="https://twitter.com/malvarezcr" target="_blank">@malvarezcr</a>
+    </ng-container>
+
+    <ng-template #loggedOut>
+      Session: inactive
+    </ng-template>
+
+  </h1>
   <router-outlet></router-outlet>
 </main>

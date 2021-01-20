@@ -9,11 +9,9 @@ import { SessionLibService } from 'session-lib';
 export class AppComponent {
   title = 'shell';
 
-  constructor(public session: SessionLibService) {
-
-  }
+  constructor(public session: SessionLibService) { }
 
   public click() {
-    console.log(this.session.isActive)
+    this.session.setSession(!this.session.isActive)
   }
 }

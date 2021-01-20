@@ -11,8 +11,7 @@ export class DashboardComponent implements OnInit {
   constructor(public session: SessionLibService) { }
 
   ngOnInit(): void {
-    this.session.setSession(true)
-    console.log(this.session.isActive)
+
   }
 
 }
