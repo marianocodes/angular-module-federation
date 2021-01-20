@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SessionLibService } from 'session-lib';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'shell';
+
+  constructor(public session: SessionLibService) {
+
+  }
+
+  public click() {
+    console.log(this.session.isActive)
+  }
 }

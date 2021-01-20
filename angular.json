@@ -254,6 +254,46 @@
           }
         }
       }
+    },
+    "session-lib": {
+      "projectType": "library",
+      "root": "projects/session-lib",
+      "sourceRoot": "projects/session-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/session-lib/tsconfig.lib.json",
+            "project": "projects/session-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/session-lib/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/session-lib/src/test.ts",
+            "tsConfig": "projects/session-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/session-lib/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/session-lib/tsconfig.lib.json",
+              "projects/session-lib/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "cli": {
