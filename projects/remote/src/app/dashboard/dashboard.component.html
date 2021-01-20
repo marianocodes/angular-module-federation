@@ -1,8 +1,14 @@
 <div>
-  <figure>
-    <img src="http://localhost:3000/assets/dashboard-screenshot.png" />
-    <figcaption>
-      <small>Screenshot taken from: https://pixinvent.com/demo/convex-angular-bootstrap-admin-dashboard-template/landing-page/</small>
-    </figcaption>
-  </figure>
+  <ng-container *ngIf="session?.isActive; else loggedOut">
+    <figure>
+      <img src="http://localhost:3000/assets/dashboard-screenshot.png" />
+      <figcaption>
+        <small>Screenshot taken from: https://pixinvent.com/demo/convex-angular-bootstrap-admin-dashboard-template/landing-page/</small>
+      </figcaption>
+    </figure>
+  </ng-container>
+  <ng-template #loggedOut>
+    <p>Log in to see the content</p>
+  </ng-template>
+
 </div>

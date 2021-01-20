@@ -1,4 +1,12 @@
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const mf = require("@angular-architects/module-federation/webpack");
+const path = require("path");
+
+const sharedMappings = new mf.SharedMappings();
+sharedMappings.register(
+    path.join(__dirname, '../../tsconfig.json'),
+    ['session-lib']
+);
 
 module.exports = {
   // output: {
@@ -26,9 +34,11 @@ module.exports = {
           "@angular/material/icon": { singleton: true, strictVersion: true },
           "@angular/material/toolbar": { singleton: true, strictVersion: true },
           "@angular/animations": { singleton: true, strictVersion: true },
-          "@angular/cdk": { singleton: true, strictVersion: true }
+          "@angular/cdk": { singleton: true, strictVersion: true },
+          ...sharedMappings.getDescriptors()
         }
 
-    })
+    }),
+    sharedMappings.getPlugin(),
   ],
 };
